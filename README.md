@@ -177,10 +177,6 @@ for epoch in range(10):  # 에포크 수
     - 이는 곧 T 차원에서 처리를 통해 시간적인 정보를 사용
     - Temporal Layer를 Temporal Mixing layer로 구현하여 하나는 3D convolution / attention block 으로 구성
     - 레이어를 나온 출력을 바로 쓰는 것이 아닌 $\alpha^i_{\phi} z + (1- \alpha^i_{\phi})z^{'} ; \alpha^i_\phi \in [0,1]$ 로 학습
- 
-![Architecture](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbzQ1zN%2FbtsGKWIkky1%2FYoEnYpx1wkvkG5FNPKsSIk%2Fimg.png)
-
-
     - 공간적 레이어는 고정하고 시간적 레이어만 최적화
     - $\argmin_\phi \mathbb{E}_{x\sim p_data, \tau \sim p_r, \epsilon \sim \mathcal{N}(0,I)}[\vert\vert y - f_{\phi,\theta}(z_\tau;c,\tau)\vert\vert^2_2] $ -> 시간적 레이어에 대해서 인코딩 된 $z$의 MSE를 학습
     - Temporal Autoencoder Finetuning : T2I의 오토인코더 또한 이미지 기반이어서 오토인코더의 디코더 부분에 추가적인 temporal lyaers를 적용
@@ -189,7 +185,8 @@ for epoch in range(10):  # 에포크 수
         2. 프레임을 이용해 보간을 수행 -> FPS를 늘리는 작업
         3. 보간 완료한 latent vector에 대한 디코딩 수행
         4. Upsampler를 이용하여 Super Resolution 수행
-
+     
+![Architecture](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbzQ1zN%2FbtsGKWIkky1%2FYoEnYpx1wkvkG5FNPKsSIk%2Fimg.png)
 ![Process](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Flc7St%2FbtsGKuL6vYf%2Fk3qXKMWCPxYQ3OePyRK651%2Fimg.png)
 
 
