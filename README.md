@@ -170,6 +170,7 @@ for epoch in range(10):  # 에포크 수
 
 - Baseline은 Video LDM이다
     - Video LDM : 이미지 LDM을 구성하는 레이어의 차원 입력을 공간적 레이어로 처리
+    - 베이스 모델은 Text-to-Image 모델이다
     - 시간에 대한 감각이 없기에 시간적인 레이어 추가 
     - $z \in \mathbb{R}^{T \times C \times H \times W}$ 의 데이터
     - 시간 차원까지 배치로 처리해 (B * T) C H W 로 적용
